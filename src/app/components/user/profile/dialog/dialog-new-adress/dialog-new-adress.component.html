@@ -1,0 +1,86 @@
+<h2 mat-dialog-title>Cadastrar Endereço</h2>
+<!-- Formulario -->
+<form [formGroup]="form">
+  <div class="form-row">
+
+    <!-- CEP -->
+    <mat-form-field class="form-content">
+      <mat-label>CEP</mat-label>
+      <input
+        type="text"
+        matInput
+        formControlName="cep"
+        mask="00000-000"
+        placeholder="Ex. 00000-000"
+        (change)="getInfo()"
+      />
+      <mat-error *ngIf="form.get('cep')?.errors?.['minlength']">O cep é <strong>invalido</strong></mat-error>
+
+      <mat-error *ngIf="form.get('cep')?.errors?.['required']">O CEP é <strong>obrigatorio</strong></mat-error>
+    </mat-form-field>
+    <!-- CEP -->
+    <!-- ESTADO -->
+    <mat-form-field class="form-content">
+      <mat-label>estado</mat-label>
+      <input type="text" matInput formControlName="estado" placeholder="" [matAutocomplete]="auto"/>
+      <mat-autocomplete #auto="matAutocomplete">
+
+          <mat-option *ngFor="let option of estados" [value]="option.nome">{{option.nome}}</mat-option>
+
+      </mat-autocomplete>
+      <mat-error *ngIf="form.get('estado')?.errors?.['required']">O estado é <strong>obrigatorio</strong></mat-error>
+    </mat-form-field>
+    <!-- ESTADO -->
+  </div>
+
+  <div class="form-row">
+    <!-- BAIRRO -->
+    <mat-form-field class="form-content">
+      <mat-label>bairro</mat-label>
+      <input type="text" matInput formControlName="bairro" placeholder="" />
+      <mat-error *ngIf="form.get('bairro')?.errors?.['required']">O bairro é <strong>obrigatorio</strong></mat-error>
+    </mat-form-field>
+    <!-- BAIRRO -->
+
+    <!-- CIDADE -->
+    <mat-form-field class="form-content">
+      <mat-label>cidade</mat-label>
+      <input type="text" matInput formControlName="cidade" placeholder="" />
+      <mat-error *ngIf="form.get('cidade')?.errors?.['required']">A cidade é <strong>obrigatoria</strong></mat-error>
+    </mat-form-field>
+    <!-- CIDADE -->
+
+
+  </div>
+  <div class="form-row">
+    <!-- RUA -->
+    <mat-form-field class="form-content">
+      <mat-label>rua</mat-label>
+      <input type="text" matInput formControlName="logradouro" placeholder="" />
+      <mat-error *ngIf="form.get('logradouro')?.errors?.['required']">O logradouro é <strong>obrigatoria</strong></mat-error>
+    </mat-form-field>
+    <!-- RUA -->
+    <!-- NUMERO -->
+    <mat-form-field class="form-content">
+      <mat-label>numero</mat-label>
+      <input type="text" matInput formControlName="numero" placeholder="" />
+      <mat-error *ngIf="form.get('numero')?.errors?.['required']">O numero é <strong>obrigatorio</strong></mat-error>
+
+    </mat-form-field>
+    <!-- NUMERO -->
+
+  </div>
+
+<div class="form-row">
+  <button
+      mat-flat-button
+      color="primary"
+      mat-button [mat-dialog-close]="form"
+      cdkFocusInitial
+    >
+      Cadastrar
+    </button>
+  </div>
+
+</form>
+<!-- formulaario -->

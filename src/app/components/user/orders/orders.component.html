@@ -1,0 +1,48 @@
+<div class="main-container">
+  <mat-card color="primary" fxFlex="80%">
+    <mat-toolbar color="primary">
+      <span>Meus Pedidos</span>
+    </mat-toolbar>
+
+    <div *ngFor="let pedido of pedidos">
+      <div class="pedido-header">
+        <div class="col-1">
+          <p>Pedido Realizado</p>
+          <p>{{formatarData(pedido.data_pedido)}}</p>
+        </div>
+        <div class="col-2">
+          <p>TOTAL</p>
+          <p>{{pedido.value}}</p>
+        </div>
+        <div class="col-3">
+          <p>DESTINATARIO</p>
+          <p>{{pedido.client}}</p>
+        </div>
+        <div class="col-4">
+          <p>Status</p>
+          <p>{{pedido.status}}</p>
+
+        </div>
+        <div class="col-5">
+          <button mat-flat-button [disabled]="pedido.status!=='Entregue'" >
+            TROCA
+          </button>
+          <button mat-flat-button [disabled]="pedido.status!=='Entregue'" >
+            Devolução
+          </button>
+        </div>
+      </div>
+      <div *ngFor="let produto of pedido.products,let i = index">
+
+        <mat-card class="example-card">
+          <mat-card-header>
+            <mat-card-title-group>
+              <img mat-card-sm-image src="https://material.angular.io/assets/img/examples/shiba2.jpg"  alt="Image of a Shiba Inu">
+              <mat-card-subtitle>{{produto.produto.titulo}}</mat-card-subtitle>
+            </mat-card-title-group>
+          </mat-card-header>
+        </mat-card>
+      </div>
+    </div>
+  </mat-card>
+</div>

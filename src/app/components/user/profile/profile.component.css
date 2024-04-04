@@ -1,0 +1,57 @@
+.main-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 10px;
+  gap: 10px;
+}
+.container-basic-info{
+  width: 80%;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+}
+.container-adress{
+  width: 80%;
+  /* height: 500px; */
+  display: flex;
+  justify-content: center;
+  background-color: aqua;
+}
+.half-width{
+  width: 40%;
+}
+.card-full{
+  width: 100%;
+}
+.row-1{
+  display: flex;
+  justify-content: space-around;
+  padding-top:7px;
+}
+.row-2{
+  display: flex;
+  justify-content: space-around;
+  padding-top:7px;
+}
+.a{
+  display: flex;
+  width: 40%;
+  justify-content: space-between;
+}
+
+.loadFail{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap:20px;
+  justify-content: center;
+  align-items: center;
+
+}
+.toolbar-card{
+  display: flex;
+  justify-content: space-between;
+}

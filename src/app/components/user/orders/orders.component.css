@@ -1,0 +1,61 @@
+.example-card {
+
+}
+.main-container{
+  display: flex;
+  justify-content: center;
+  padding-top: 10px;
+}
+
+.mat-mdc-card-title-group{
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  gap:15px;
+}
+.pedido-header{
+  margin-top: 10px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  /* background-color: rgb(161, 161, 161); */
+  background-color: whitesmoke;
+  width: 100%;
+  height: 80px;
+  display:flex;
+  justify-content: space-evenly;
+  /* color: whitesmoke; */
+  color:black;
+
+}
+.col-1{
+  align-content: center;
+
+  width: 20%;
+  padding-top: 7px;
+  font-size: large;
+}
+.col-2{
+  align-content: center;
+  padding-top: 7px;
+  width: 10%;
+}
+.col-3{
+  align-content: center;
+
+  padding-top: 7px;
+  width: 20%;
+}
+.col-4{
+  align-content: center;
+  padding-top: 7px;
+  width: 20%;
+}
+.col-5{
+  padding-top: 7px;
+  width: 20%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.mat-mdc-card-header {
+  padding: 8px 16px 8px;
+}

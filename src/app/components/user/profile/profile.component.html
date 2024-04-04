@@ -1,0 +1,217 @@
+<div class="main-container"*ngIf=" load; else carregando">
+  <!-- BASIC-CONTAINER -->
+  <div class="container-basic-info" >
+    <mat-card class="card-full">
+      <mat-toolbar>
+        <span>Informações Basicas</span>
+      </mat-toolbar>
+      <div class="row-1">
+        <mat-form-field class="half-width">
+          <mat-label>Nome Completo:</mat-label>
+          <input matInput value="{{ usuario.nome }}" disabled="true" />
+        </mat-form-field>
+        <div class="a">
+          <mat-form-field class="example-full-width">
+            <mat-label>Gênero</mat-label>
+            <input
+              matInput
+              disabled="true"
+              value="{{ usuario.genero | genero }}"
+            />
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <mat-label>Data de Nascimento</mat-label>
+            <input
+              matInput
+              disabled="true"
+              value="{{ usuario.dataNascimento | data }}"
+            />
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row-2">
+        <mat-form-field class="half-width">
+          <mat-label>E-mail:</mat-label>
+          <input matInput value="{{ usuario.email }}" disabled="true" />
+        </mat-form-field>
+
+        <div class="a">
+          <!-- <mat-form-field class="">
+            <mat-label>Telefone:</mat-label>
+            <input matInput value="{{ formatarTelefone(usuario.telefone)}}" disabled="true">
+          </mat-form-field> -->
+
+          <mat-form-field class="">
+            <mat-label>Telefone:</mat-label>
+            <!-- <span matTextPrefix disabled="true"
+              >{{ usuario.telefone.ddd }} &nbsp;</span
+            > -->
+            <input
+              type="tel"
+              matInput
+              value="({{usuario.telefone.ddd}}){{ usuario.telefone | telefone }}"
+              disabled="true"
+            />
+            <!-- <mat-icon matSuffix>mode_edit</mat-icon> -->
+          </mat-form-field>
+
+          <mat-form-field class="">
+            <mat-label>CPF:</mat-label>
+            <input matInput value="{{ usuario.cpf | cpf }}" disabled="true" />
+          </mat-form-field>
+        </div>
+      </div>
+    </mat-card>
+  </div>
+  <!-- BASIC-CONTAINER -->
+
+  <!-- container adress-->
+  <div class="container-adress">
+    <mat-card class="card-full">
+      <mat-toolbar class="toolbar-card">
+        <span>Endereços</span>
+        <div > <button mat-flat-button (click)="openDialog()">
+         Novo endereço
+        </button></div>
+      </mat-toolbar>
+
+      <div>
+        <mat-accordion class="example-headers-align" multi>
+          <mat-expansion-panel *ngFor="let end of usuario.enderecos">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                {{ end.descricao }}
+              </mat-panel-title>
+              <!-- <mat-panel-description>
+              Type your name and age
+              <mat-icon>account_circle</mat-icon>
+            </mat-panel-description> -->
+            </mat-expansion-panel-header>
+
+            <div class="row-1">
+              <mat-form-field>
+                <mat-label>País</mat-label>
+                <input matInput value="{{ end.pais }}" disabled />
+              </mat-form-field>
+
+              <mat-form-field>
+                <mat-label>Estado</mat-label>
+                <input matInput value="{{ end.estado }}" disabled />
+              </mat-form-field>
+              <mat-form-field>
+                <mat-label>Cidade</mat-label>
+                <input matInput value="{{ end.cidade }}" disabled />
+              </mat-form-field>
+
+              <mat-form-field>
+                <mat-label>Bairro</mat-label>
+                <input matInput value="{{ end.bairro }}" disabled />
+              </mat-form-field>
+            </div>
+            <div class="row-1">
+              <mat-form-field>
+                <mat-label>Logradouro</mat-label>
+                <input matInput value="{{ end.logradouro }}" disabled />
+              </mat-form-field>
+
+              <mat-form-field>
+                <mat-label>numero</mat-label>
+                <input matInput value="{{ end.numero }}" disabled />
+              </mat-form-field>
+              <mat-form-field>
+                <mat-label>tipo logradouro</mat-label>
+                <input matInput value="{{ end.tpLogradouro }}" disabled />
+              </mat-form-field>
+
+              <mat-form-field>
+                <mat-label>CEP</mat-label>
+                <input matInput value="{{ end.cep }}" disabled />
+              </mat-form-field>
+            </div>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </div>
+    </mat-card>
+  </div>
+  <!-- container adress-->
+
+  <!-- container cartao-->
+  <div class="container-adress">
+    <mat-card class="card-full">
+      <mat-toolbar class="toolbar-card">
+        <span>Cartões</span>
+        <div > <button mat-flat-button (click)="openDialogCard()">
+         Novo Cartão
+        </button></div>
+      </mat-toolbar>
+
+      <div>
+        <mat-accordion class="example-headers-align" multi>
+          <mat-expansion-panel *ngFor="let cartao of usuario.cartoes">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                {{ cartao.descricao }}
+              </mat-panel-title>
+              <!-- <mat-panel-description>
+              Type your name and age
+              <mat-icon>account_circle</mat-icon>
+            </mat-panel-description> -->
+            </mat-expansion-panel-header>
+
+            <div class="row-1">
+              <mat-form-field>
+                <mat-label>Nome impresso</mat-label>
+                <input matInput value="{{ cartao.nomeImpresso }}" disabled />
+              </mat-form-field>
+
+              <mat-form-field>
+                <mat-label>Numero</mat-label>
+                <input matInput value="{{ cartao.numeroCartao }}" disabled />
+              </mat-form-field>
+              <mat-form-field>
+                <mat-label>Bandeira</mat-label>
+                <input matInput value="{{ cartao.bandeira }}" disabled />
+              </mat-form-field>
+
+              <mat-form-field>
+                <mat-label>Codigo</mat-label>
+                <input matInput value="{{ cartao.codigoSeguranca }}" disabled />
+              </mat-form-field>
+            </div>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </div>
+    </mat-card>
+  </div>
+  <!-- container cartao-->
+
+  <!--container senha-->
+  <div class="container-basic-info">
+    <mat-card class="card-full">
+      <mat-toolbar>
+        <span>Alterar Senha</span>
+      </mat-toolbar>
+      <form [formGroup]="form">
+        <div class="row-1">
+          <mat-form-field class="half-width">
+            <mat-label>Senha Atual:</mat-label>
+            <input matInput type="password" formControlName="password" />
+          </mat-form-field>
+          <mat-form-field class="half-width">
+            <mat-label>Nova Senha:</mat-label>
+            <input matInput type="password" formControlName="new_password" />
+          </mat-form-field>
+        </div>
+        <button mat-flat-button color="primary" (click)="atualizarSenha()">
+          ALTERAR
+        </button>
+      </form>
+    </mat-card>
+  </div>
+
+</div>
+<ng-template #loadFail><div class="loadFail" > FALHA AO CARREGAR </div>  </ng-template>
+<ng-template #carregando><div class="loadFail"> <mat-spinner></mat-spinner>
+  Carregando </div>  </ng-template>
