@@ -1,0 +1,21 @@
+.main-container{
+  display: flex;
+  height: 80%;
+}
+.container-form{
+  display: flex;
+  flex-direction: column;
+
+  width: 50%;
+  height: 100%;
+  min-width: 570px;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 20px;
+}
+.login-form{
+  display: flex;
+  flex-direction: column;
+  height: 230px;
+  width: 500px;
+}

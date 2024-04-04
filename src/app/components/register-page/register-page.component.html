@@ -1,0 +1,218 @@
+<div class="main-container">
+  <h1>Crie sua conta</h1>
+  <form [formGroup]="RegisterForm">
+
+    <div class="form-row">
+      <!-- NOME COMPLETO -->
+      <mat-form-field class="form-content">
+        <mat-label>Nome Completo</mat-label>
+        <input
+          type="text"
+          matInput
+          formControlName="name"
+          name="input_name"
+          placeholder=""
+        />
+        <mat-error *ngIf="RegisterForm.get('name')?.errors?.['required']"
+          >O nome completo é <strong>obrigatorio</strong></mat-error
+        >
+      </mat-form-field>
+      <!-- NOME COMPLETO -->
+
+      <!-- SEXO -->
+      <div class="form-content content-radio">
+        <label id="example-radio-group-label" class="example-margin"
+          >Sexo:</label
+        >
+        <mat-radio-group
+          aria-labelledby="example-radio-group-label"
+          formControlName="gender"
+        >
+          <mat-radio-button value="0">Masculino</mat-radio-button>
+          <mat-radio-button value="1">Feminino</mat-radio-button>
+        </mat-radio-group>
+        <mat-error *ngIf="RegisterForm.get('gender')?.dirty && RegisterForm.get('gender')?.errors?.['required']"
+          >Marque seu sexo</mat-error
+        >
+      </div>
+       <!-- SEXO -->
+    </div>
+
+
+
+    <div class="form-row">
+      <!-- CPF -->
+      <mat-form-field class="form-content">
+        <mat-label>CPF</mat-label>
+        <input
+          type="text"
+          matInput
+          formControlName="cpf"
+          mask="000.000.000-00"
+          placeholder="Ex. 000.000.000-00"
+          name="input_cpf"
+        />
+        <mat-error *ngIf="RegisterForm.get('cpf')?.errors?.['required']">O cpf é <strong>obrigatorio</strong></mat-error>
+        <mat-error *ngIf="RegisterForm.get('cpf')?.errors?.['minlength']">O cpf é <strong>Invalido</strong></mat-error>
+      </mat-form-field>
+      <!-- CPF -->
+
+      <!-- ANIVERSARIO -->
+      <mat-form-field class="form-content">
+        <mat-label>Data de Nascimento</mat-label>
+        <input matInput formControlName="birthday" name="input_nascimento" [matDatepicker]="data" />
+        <mat-hint>DD/MM/YYYY</mat-hint>
+        <mat-datepicker-toggle
+          matIconSuffix
+          [for]="data"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #data></mat-datepicker>
+        <mat-error *ngIf="RegisterForm.get('birthday')?.errors?.['required']">A data de nascimento é <strong>obrigatoria.</strong></mat-error>
+
+      </mat-form-field>
+      <!-- ANIVERSARIO -->
+    </div>
+
+
+
+    <div class="form-row">
+      <!-- EMAIL -->
+      <mat-form-field class="form-content">
+        <mat-label>Email</mat-label>
+        <input type="email" matInput formControlName="email" placeholder="" />
+        <mat-error *ngIf="RegisterForm.get('email')?.errors?.['required']">O email é <strong>obrigatorio</strong></mat-error>
+        <mat-error *ngIf="RegisterForm.get('email')?.errors?.['email']">É necessario um email <strong>valido</strong></mat-error>
+      </mat-form-field>
+      <!-- EMAIL -->
+      <!-- TELEFONE -->
+      <mat-form-field class="form-content">
+        <mat-label>Telefone</mat-label>
+        <input
+          type="text"
+          matInput
+          formControlName="cel"
+          mask="(00)00000-0000"
+          placeholder="Ex. (00)00000-0000"
+        />
+        <mat-error *ngIf="RegisterForm.get('cel')?.errors?.['required']">O telefone é <strong>obrigatorio</strong></mat-error>
+        <mat-error *ngIf="RegisterForm.get('cel')?.errors?.['minlength']">O telefone é <strong>invalido</strong></mat-error>
+
+      </mat-form-field>
+      <!-- TELEFONE -->
+
+
+    </div>
+
+    <div class="form-row">
+
+      <!-- CEP -->
+      <mat-form-field class="form-content">
+        <mat-label>CEP</mat-label>
+        <input
+          type="text"
+          matInput
+          formControlName="cep"
+          mask="00000-000"
+          placeholder="Ex. 00000-000"
+          (change)="verificaCEP()"
+        />
+        <mat-error *ngIf="RegisterForm.get('cep')?.errors?.['minlength']">O cep é <strong>invalido</strong></mat-error>
+
+        <mat-error *ngIf="RegisterForm.get('cep')?.errors?.['required']">O CEP é <strong>obrigatorio</strong></mat-error>
+      </mat-form-field>
+      <!-- CEP -->
+      <!-- ESTADO -->
+      <mat-form-field class="form-content">
+        <mat-label>estado</mat-label>
+        <input type="text" matInput formControlName="estado" placeholder="" [matAutocomplete]="auto"/>
+        <mat-autocomplete #auto="matAutocomplete">
+
+            <mat-option *ngFor="let option of estados" [value]="option.nome">{{option.nome}}</mat-option>
+
+        </mat-autocomplete>
+        <mat-error *ngIf="RegisterForm.get('estado')?.errors?.['required']">O estado é <strong>obrigatorio</strong></mat-error>
+      </mat-form-field>
+      <!-- ESTADO -->
+    </div>
+
+    <div class="form-row">
+      <!-- RUA -->
+      <mat-form-field class="form-content">
+        <mat-label>rua</mat-label>
+        <input type="text" matInput formControlName="logradouro" placeholder="" />
+        <mat-error *ngIf="RegisterForm.get('logradouro')?.errors?.['required']">O logradouro é <strong>obrigatorio</strong></mat-error>
+      </mat-form-field>
+      <!-- RUA -->
+      <!-- NUMERO -->
+      <mat-form-field class="form-content">
+        <mat-label>numero</mat-label>
+        <input type="text" matInput formControlName="numero" placeholder="" />
+        <mat-error *ngIf="RegisterForm.get('numero')?.errors?.['required']">O numero é <strong>obrigatorio</strong></mat-error>
+
+      </mat-form-field>
+      <!-- NUMERO -->
+
+    </div>
+
+    <div class="form-row">
+      <!-- BAIRRO -->
+      <mat-form-field class="form-content">
+        <mat-label>bairro</mat-label>
+        <input type="text" matInput formControlName="bairro" placeholder="" />
+        <mat-error *ngIf="RegisterForm.get('bairro')?.errors?.['required']">O bairro é <strong>obrigatorio</strong></mat-error>
+      </mat-form-field>
+      <!-- BAIRRO -->
+
+      <!-- CIDADE -->
+      <mat-form-field class="form-content">
+        <mat-label>cidade</mat-label>
+        <input type="text" matInput formControlName="cidade" placeholder="" />
+        <mat-error *ngIf="RegisterForm.get('cidade')?.errors?.['required']">A cidade é <strong>obrigatoria</strong></mat-error>
+      </mat-form-field>
+      <!-- CIDADE -->
+
+
+    </div>
+
+    <div class="form-row">
+
+      <!-- SENHA -->
+      <mat-form-field class="form-content">
+        <mat-label>Senha</mat-label>
+        <input
+          type="password"
+          matInput
+          formControlName="password"
+          placeholder=""
+        />
+        <mat-error *ngIf="RegisterForm.get('password')?.errors?.['required']">A senha é <strong>obrigatoria</strong></mat-error>
+      </mat-form-field>
+      <!-- SENHA -->
+      <!-- SENHA -->
+      <mat-form-field class="form-content">
+        <mat-label>Confirmar senha</mat-label>
+        <input
+          type="password"
+          matInput
+          formControlName="confirm_password"
+          placeholder=""
+        />
+        <mat-error *ngIf="RegisterForm.get('confirm_password')?.errors?.['required']">É necessario confirmar a senha.</mat-error>
+        <mat-error *ngIf="!RegisterForm.get('password')?.errors?.['required'] &&!RegisterForm.get('confirm_password')?.errors?.['required'] && RegisterForm.errors?.['notSame']">As senhas são diferentes</mat-error>
+
+      </mat-form-field>
+      <!-- SENHA -->
+    </div>
+
+    <div class="form-row">
+      <button
+        mat-flat-button
+        color="primary"
+
+        (click)="register()"
+      >
+        Cadastrar
+      </button>
+    </div>
+  </form>
+</div>
