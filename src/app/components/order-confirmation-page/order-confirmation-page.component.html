@@ -1,0 +1,109 @@
+<div class="main-container">
+<mat-vertical-stepper class="container-stepper">
+  <mat-step>
+    <ng-template matStepLabel>Dados da Entrega</ng-template>
+    <form action="" >
+      <div class="row-stepper">
+      <mat-form-field>
+        <mat-label>Destinatario</mat-label>
+        <input type="text" matInput placeholder="" />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>CEP</mat-label>
+        <input type="text" matInput placeholder="" />
+      </mat-form-field>
+    </div>
+      <div class="row-stepper">
+      <mat-form-field>
+        <mat-label>Rua</mat-label>
+        <input type="text" matInput placeholder="" />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Numero</mat-label>
+        <input type="text" matInput placeholder="" />
+      </mat-form-field>
+    </div>
+<div class="row-stepper">
+      <mat-form-field>
+        <mat-label>Bairro</mat-label>
+        <input type="text" matInput placeholder="" />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Cidade</mat-label>
+        <input type="text" matInput placeholder="" />
+      </mat-form-field>
+    </div >
+      <button mat-button matStepperNext>Proximo</button>
+    </form>
+  </mat-step>
+
+  <mat-step>
+    <ng-template matStepLabel>Metodo de Pagamento</ng-template>
+    <form [formGroup]="formCreditCard">
+      <div class="row-stepper">
+        <mat-form-field>
+          <mat-label>Nome no Cartão</mat-label>
+          <input type="text" matInput placeholder="" />
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Numero do Cartão</mat-label>
+          <input type="text" matInput placeholder="" />
+        </mat-form-field>
+      </div>
+
+      <div class="row-stepper">
+
+        <mat-form-field>
+          <mat-label>Mês</mat-label>
+          <mat-select formControlName="mes" >
+            <mat-option *ngFor="let mes of meses" value="{{mes}}">{{mes}}</mat-option>
+
+          </mat-select>
+        </mat-form-field>
+
+
+        <mat-form-field>
+          <mat-label>Ano</mat-label>
+          <input type="text" formControlName="ano" matInput placeholder="" />
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Codigo de Segurança</mat-label>
+          <input type="text" formControlName="cod" matInput placeholder="" />
+        </mat-form-field>
+      </div>
+    </form>
+    <button mat-button matStepperPrevious>Voltar</button>
+    <button mat-button matStepperNext>Proximo</button>
+  </mat-step>
+
+  <mat-step>
+    <ng-template matStepLabel>Cupom</ng-template>
+    <mat-form-field>
+      <mat-label>Cupom</mat-label>
+      <input type="text" formControlName="cupom" matInput placeholder="" />
+    </mat-form-field>
+    <div>
+    <button mat-button matStepperPrevious>Voltar</button>
+    <button mat-button matStepperNext>Proximo</button>
+  </div>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Finalizar</ng-template>
+    Você finalizou.
+    <div>
+      <button mat-button matStepperPrevious>Voltar</button>
+      <button mat-button >Reset</button>
+    </div>
+  </mat-step>
+</mat-vertical-stepper>
+
+<div class="container-resumo">
+
+  <h2>Resumo do Pedido</h2>
+  <h4>Itens:R$59,80</h4>
+  <h4>Frete:R$10,00</h4>
+  <h5>Cupom:R$0,00</h5>
+  <h3>Total Pedido:R$69,80</h3>
+  <button mat-flat-button color="primary">Finalizar Pedido</button>
+</div>
+</div>

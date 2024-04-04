@@ -1,0 +1,25 @@
+.main-container{
+  display: flex;
+  justify-content: space-around;
+  padding-top: 50px;
+}
+.container-stepper{
+  width: 60%;
+}
+.container-resumo{
+  width: 20%;
+  height:250px;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: whitesmoke;
+  border: 1px solid;
+}
+.row-stepper{
+  display: flex;
+
+  gap:10px
+}
+.form-entrega{
+  display: flex;
+  flex-direction: column;
+}
