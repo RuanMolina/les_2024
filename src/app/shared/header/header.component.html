@@ -1,0 +1,80 @@
+<mat-toolbar color="primary" class="container-header">
+  <mat-toolbar-row class="linha">
+    <div class="start">
+      <!-- Logo-->
+      <div>
+        <a routerLink="/" class="logo_container">
+          <img src="./../../../assets/logoPapaia.png" class="logo" alt="logo" />
+          <span>PAPAIA</span>
+        </a>
+      </div>
+      <!-- FIM Logo -->
+
+      <!-- Dropdown-->
+      <button mat-button [matMenuTriggerFor]="menu">Categoria</button>
+      <mat-menu #menu="matMenu">
+        <button
+          mat-menu-item
+          *ngFor="let item of categorias"
+          routerLink="/search"
+        >
+          {{ item }}
+        </button>
+      </mat-menu>
+    </div>
+    <!-- FIM Dropdown-->
+
+    <!-- Barra de Pesquisa -->
+    <form>
+      <mat-form-field class="header_search">
+        <mat-label class="label_search">Pesquisar</mat-label>
+        <input matInput class="input_search" name="header_input_search" />
+        <button
+          matSuffix
+          mat-icon-button
+          routerLink="/search"
+          aria-label="Clear"
+          name="header_button_search"        >
+          <mat-icon>search</mat-icon>
+        </button>
+      </mat-form-field>
+    </form>
+    <!-- FIM PESQUISA  -->
+
+    <span class="example_spacer"></span>
+    <!-- OPCOES  -->
+    <div class="start" *ngIf="!logado; else logou">
+      <button mat-button routerLink="login">Login / Registrar</button>
+      <button mat-button routerLink="shoppingcart">Carrinho</button>
+    </div>
+
+    <!-- FIM OPCOES  -->
+  </mat-toolbar-row>
+</mat-toolbar>
+<ng-template #logou>
+  <div class="start">
+    <button mat-button [matMenuTriggerFor]="menuPerfil">Perfil</button>
+    <mat-menu #menuPerfil="matMenu">
+      <button
+        mat-menu-item
+        *ngFor="let item of userOptions"
+        routerLink="{{ item.link }}"
+      >
+        {{ item.desc }}
+      </button>
+    </mat-menu>
+    <button mat-button routerLink="shoppingcart">Carrinho</button>
+  </div>
+  <div class="start" *ngIf="admin">
+    <button mat-button [matMenuTriggerFor]="menuPerfil">Admin</button>
+    <mat-menu #menuPerfil="matMenu">
+      <button
+        mat-menu-item
+        *ngFor="let item of adminOptions"
+        routerLink="{{ item.link }}"
+      >
+        {{ item.desc }}
+      </button>
+    </mat-menu>
+  </div>
+</ng-template>

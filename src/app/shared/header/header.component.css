@@ -1,0 +1,29 @@
+.container-header{
+  width: 100%;
+  min-width:100%;
+}
+.header_search{
+padding-top: 20px;
+width:300px;
+}
+.linha{
+display: flex;
+justify-content: space-between;
+}
+.example-spacer {
+  flex: 1 1 auto;
+}
+.start{
+  display: flex;
+  align-items: center;
+  gap:50px;
+}
+.logo{
+  height:56px;
+}
+.logo_container{
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+}
