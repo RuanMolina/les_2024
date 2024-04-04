@@ -1,0 +1,49 @@
+<div class="main-container">
+  <mat-card color="primary" fxFlex="80%">
+    <mat-toolbar color="primary">
+      <span>Produtos</span>
+    </mat-toolbar>
+  <table mat-table [dataSource]="produtos">
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let myRowData; columns: displayedColumns"></tr>
+    <ng-container matColumnDef="titulo">
+      <th mat-header-cell *matHeaderCellDef><h2>Titulo</h2></th>
+      <td mat-cell *matCellDef="let item" class="table-info">
+        <h3>{{ item.titulo }}</h3>
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="autor">
+      <th mat-header-cell *matHeaderCellDef><h2>Autor</h2></th>
+      <td mat-cell *matCellDef="let item" class="table-info">
+        <h3>{{ item.autor }}</h3>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="editora">
+      <th mat-header-cell *matHeaderCellDef><h2>Editora</h2></th>
+      <td mat-cell *matCellDef="let item" class="table-info">
+        <h3>{{ item.editora }}</h3>
+      </td>
+    </ng-container>
+      <ng-container matColumnDef="preco">
+        <th mat-header-cell *matHeaderCellDef><h2>Preco</h2></th>
+        <td mat-cell *matCellDef="let item" class="table-info">
+          <h3>{{ item.preco }}</h3>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef> <button mat-flat-button color="primary">Novo Produto</button></th>
+        <td mat-cell *matCellDef="let item" class="button-cell">
+          <button mat-icon-button color="primary" aria-label="Example icon button with a menu icon">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button color="warn" aria-label="Example icon button with a menu icon">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+  </table>
+</mat-card>
+</div>

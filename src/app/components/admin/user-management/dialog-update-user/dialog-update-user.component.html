@@ -1,0 +1,104 @@
+<h2 mat-dialog-title>{{data.modo}} Usuario</h2>
+<form [formGroup]="form">
+
+  <div class="form-row">
+    <!-- NOME COMPLETO -->
+    <mat-form-field class="form-content">
+      <mat-label>Nome Completo</mat-label>
+      <input
+        type="text"
+        matInput
+        formControlName="name"
+        placeholder="Ex. example@example.com"
+      />
+      <mat-error *ngIf="form.get('name')?.errors?.['required']"
+        >O nome completo é <strong>obrigatorio</strong></mat-error
+      >
+    </mat-form-field>
+    <!-- NOME COMPLETO -->
+
+    <!-- SEXO -->
+    <div class="form-content content-radio">
+      <label id="example-radio-group-label" class="example-margin"
+        >Sexo:</label
+      >
+      <mat-radio-group
+        aria-labelledby="example-radio-group-label"
+        formControlName="gender"
+      >
+        <mat-radio-button value="0">Masculino</mat-radio-button>
+        <mat-radio-button value="1">Feminino</mat-radio-button>
+      </mat-radio-group>
+    </div>
+     <!-- SEXO -->
+  </div>
+
+
+
+  <div class="form-row">
+    <!-- CPF -->
+    <mat-form-field class="form-content">
+      <mat-label>CPF</mat-label>
+      <input
+        type="text"
+        matInput
+        formControlName="cpf"
+        placeholder="Ex. 000.000.000-00"
+      />
+      <mat-error *ngIf="form.get('cpf')?.errors?.['required']">O cpf é <strong>obrigatorio</strong></mat-error>
+    </mat-form-field>
+    <!-- CPF -->
+
+    <!-- ANIVERSARIO -->
+    <mat-form-field class="form-content">
+      <mat-label>Data de Aniversário</mat-label>
+      <input matInput formControlName="birthday" [matDatepicker]="data1" />
+      <mat-hint>DD/MM/YYYY</mat-hint>
+      <mat-datepicker-toggle
+        matIconSuffix
+        [for]="data1"
+      ></mat-datepicker-toggle>
+      <mat-datepicker #data1></mat-datepicker>
+    </mat-form-field>
+    <!-- ANIVERSARIO -->
+  </div>
+
+
+
+  <div class="form-row">
+    <!-- EMAIL -->
+    <mat-form-field class="form-content">
+      <mat-label>Email</mat-label>
+      <input type="email" matInput formControlName="email" placeholder="" />
+      <!-- <mat-error *ngIf="formCliente.get('username')?.errors?.['required']">Usuario é <strong>requirido</strong></mat-error> -->
+    </mat-form-field>
+    <!-- EMAIL -->
+    <!-- TELEFONE -->
+    <mat-form-field class="form-content">
+      <mat-label>Telefone</mat-label>
+      <input
+        type="text"
+        matInput
+        formControlName="telefone"
+        placeholder="Ex. (00)00000-0000"
+      />
+      <!-- <mat-error *ngIf="formCliente.get('username')?.errors?.['required']">Usuario é <strong>requirido</strong></mat-error> -->
+    </mat-form-field>
+    <!-- TELEFONE -->
+
+
+  </div>
+
+
+
+  <div class="form-row">
+    <button
+      mat-flat-button
+      color="primary"
+      [disabled]="!form.valid"
+      mat-button [mat-dialog-close]="form" cdkFocusInitial
+    >
+      Cadastrar
+    </button>
+  </div>
+</form>

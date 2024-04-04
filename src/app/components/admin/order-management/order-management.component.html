@@ -1,0 +1,50 @@
+
+<div class="main-container">
+  <mat-card color="primary" fxFlex="80%">
+    <mat-toolbar color="primary">
+      <span>Gestão de Pedidos</span>
+    </mat-toolbar>
+  <table mat-table [dataSource]="pedidos">
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let myRowData; columns: displayedColumns"></tr>
+    <ng-container matColumnDef="client">
+      <th mat-header-cell *matHeaderCellDef><h2>Cliente</h2></th>
+      <td mat-cell *matCellDef="let item" >
+        <h3>{{ item.client }}</h3>
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="status">
+      <th mat-header-cell *matHeaderCellDef><h2>Status</h2></th>
+      <td mat-cell *matCellDef="let item" >
+        <h3>{{ item.status }}</h3>
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="value">
+      <th mat-header-cell *matHeaderCellDef><h2>Valor Total</h2></th>
+      <td mat-cell *matCellDef="let item" >
+        <h3>{{ item.value }}</h3>
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="products">
+      <th mat-header-cell *matHeaderCellDef><h2>Produtos</h2></th>
+      <td mat-cell *matCellDef="let item" >
+        <h5 *ngFor="let prod of item.products">{{ prod }}</h5>
+      </td>
+    </ng-container>
+
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef> </th>
+        <td mat-cell *matCellDef="let item" >
+          <button mat-icon-button color="primary" aria-label="Example icon button with a menu icon">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button color="warn" aria-label="Example icon button with a menu icon">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+  </table>
+</mat-card>
+</div>

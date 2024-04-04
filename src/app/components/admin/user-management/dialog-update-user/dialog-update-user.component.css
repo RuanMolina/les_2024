@@ -1,0 +1,19 @@
+.main-container{
+  padding: 20px 0;
+  text-align: center;
+}
+
+.form-row{
+  display: flex;
+  justify-content: center;
+  gap:50px;
+}
+.form-content{
+  width:300px;
+}
+.content-radio{
+  text-align: left;
+  align-content: center;
+  display: flex;
+  flex-direction: column;
+}
