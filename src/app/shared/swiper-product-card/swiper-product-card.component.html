@@ -1,0 +1,15 @@
+<div class="swiper-card">
+
+  <div class="swiper-wrapper">
+    <div class="swiper-slide slide" *ngFor="let item of products">
+      <mat-card class="card">
+        <img mat-card-image src="{{item.img_url}}" alt="">
+        <mat-card-content>
+          <p>{{item.titulo}}</p>
+        </mat-card-content>
+      </mat-card>
+
+    </div>
+
+  </div>
+</div>

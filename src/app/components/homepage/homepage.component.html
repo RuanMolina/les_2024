@@ -1,0 +1,26 @@
+<div class="main-container">
+  <div class="swiper-container swiper">
+    <!-- Additional required wrapper -->
+    <div class="swiper-wrapper">
+      <!-- Slides -->
+      <div class="swiper-slide slider" *ngFor="let banner of banners">
+        <img src="{{banner.image_url}}" alt="{{banner.alt}}">
+      </div>
+
+      ...
+    </div>
+    <!-- If we need pagination -->
+    <div class="swiper-pagination"></div>
+
+    <!-- If we need navigation buttons -->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+
+
+  </div>
+
+</div>
+<div class="container-vendidos">
+  <h2>Mais Vendidos</h2>
+  <app-swiper-product-card></app-swiper-product-card>
+</div>
