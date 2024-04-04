@@ -1,0 +1,63 @@
+<div class="main-container">
+  <mat-sidenav-container class="sidenav-container">
+
+    <mat-sidenav mode="side" class="side" opened>
+
+      <mat-expansion-panel hideToggle>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Categorias
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <mat-selection-list #cat [(ngModel)]="selectedOptionsCat">
+          <mat-list-option *ngFor="let categoria of categorias" [value]="categoria"  (click)="onCheckboxClick($event)">{{categoria}}</mat-list-option>
+        </mat-selection-list>
+
+
+      </mat-expansion-panel>
+
+      <mat-divider></mat-divider>
+
+      <mat-expansion-panel hideToggle>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Editora
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <mat-selection-list #edit [(ngModel)]="selectedOptionsEdit">
+          <mat-list-option *ngFor="let editora of editoras" [value]="editora" (click)="onCheckboxClick($event)">{{editora}}</mat-list-option>
+        </mat-selection-list>
+      </mat-expansion-panel>
+      <div class="button-container">
+        <button mat-raised-button color="primary">APLICAR</button>
+      </div>
+
+    </mat-sidenav>
+
+    <mat-sidenav-content class="content">
+
+      <div class="content-container">
+        <mat-card routerLink="/product" class="card" *ngFor="let produto of produtos">
+          <img mat-card-image src="{{produto.img_url}}" alt="">
+          <mat-card-header>
+            <mat-card-title>{{produto.titulo}}</mat-card-title>
+            <mat-card-subtitle>{{produto.autor}}</mat-card-subtitle>
+            <mat-card-subtitle>{{produto.editora}}</mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>
+            <mat-card-subtitle>{{produto.preco}}</mat-card-subtitle>
+          </mat-card-content>
+        </mat-card>
+      </div>
+
+      <mat-paginator #paginator class="paginator" (page)="handlePageEvent($event)" [length]="length"
+        [pageSize]="pageSize" [disabled]="disabled" [showFirstLastButtons]="showFirstLastButtons"
+        [pageSizeOptions]="showPageSizeOptions ? pageSizeOptions : []" [hidePageSize]="hidePageSize"
+        [pageIndex]="pageIndex" aria-label="Select page">
+      </mat-paginator>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+
+</div>

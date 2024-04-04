@@ -1,0 +1,58 @@
+<div class="main-container">
+  <div fxFlex="65%">
+    <mat-table class="cart-table" [dataSource]="produtosCarrinho">
+      <ng-container matColumnDef="img_url">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let item" class="table-img">
+          <img src="{{ item.produto.img_url }} " alt="" />
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="titulo">
+        <th mat-header-cell *matHeaderCellDef>titulo</th>
+        <td mat-cell *matCellDef="let item" class="table-info">
+          <h2>{{ item.produto.titulo }}</h2>
+          <h5>{{ item.produto.autor }}</h5>
+          <h5>{{ item.produto.editora }}</h5>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="preco">
+        <th mat-header-cell *matHeaderCellDef>preco</th>
+        <td mat-cell *matCellDef="let item">{{ item.produto.preco }}</td>
+      </ng-container>
+      <ng-container matColumnDef="quantidade">
+        <th mat-header-cell *matHeaderCellDef>quantidade</th>
+        <td mat-cell *matCellDef="let item">
+          <input
+            matInput
+            type="number"
+            min="1"
+            class="input-qtt"
+            value="{{ item.quantidade }}"
+          />
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let myRowData; columns: displayedColumns"></tr>
+    </mat-table>
+  </div>
+  <div fxFlex="30%" class="container-pedido">
+    <div class="container-val">
+    <h5>Total em Produtos:  {{valorExibido}}</h5>
+    <h5>Valor de Frete:  {{valorFrete}}</h5>
+    <h4>Total do Pedido:  {{valorTotal}}</h4>
+    <button mat-flat-button color="primary" class="button" routerLink="/order">
+      <mat-icon>shopping_cart</mat-icon>
+      Finalizar Comprar
+    </button>
+  </div>
+  <div class="container-frete">
+    Calcular frete:
+    <form class="example-form">
+      <input type="text" name="cep" id="cep" placeholder="CEP" maxlength="14">
+      <input type="button" value="calcular">
+    </form>
+  </div>
+  </div>
+
+</div>

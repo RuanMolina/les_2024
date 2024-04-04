@@ -1,0 +1,68 @@
+.main-container{
+  padding-top: 20px;
+}
+.cart-table{
+  width: 100%;
+  padding-top: 10px;
+  margin-left: 10px;
+  min-width: 500px;
+  background-color: whitesmoke;
+}
+.input-qtt{
+  width: 50px;
+}
+.mat-column-img_url img{
+  max-width: 130px;
+  max-height: 130px;
+  height: auto;
+  width: auto;
+}
+.mat-header-cell, .mat-cell {
+  justify-content: center;
+
+}
+.mat-column-preco{
+  width: 200px;
+  text-align: center;
+  vertical-align: middle;
+}
+.mat-column-quantidade{
+  width: 200px;
+  text-align: center;
+  vertical-align: middle;
+}
+.mat-column-titulo{
+  width: 300px;
+  vertical-align: middle;
+}
+h2,h5{
+  margin-bottom:0 ;
+}
+
+.container-pedido{
+
+  /* border: 1px solid; */
+  height: 40%;
+
+
+}
+.button{
+  width: 100%;
+}
+.container-val{
+  background-color: whitesmoke;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: 20px;
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+.container-frete{
+  margin-left: 20px;
+  padding: 10px 20px;
+  height:30%;
+}
+.example-form{
+  height:20px;
+}
